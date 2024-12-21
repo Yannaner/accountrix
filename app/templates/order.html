@@ -2,21 +2,23 @@
 <html>
 <head>
     <title>Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>New Order</h1>
-    <p>Product: {{ order.product_type }}</p>
-    <p>Quantity: {{ order.quantity }}</p>
-    <p>Price per Unit: {{ order.price_per_unit }}</p>
-    <p>Payment Terms: {{ order.payment_terms }}</p>
-
-    <form action="/order/{{ player_id }}" method="POST">
-        <input type="hidden" name="action" value="accept">
-        <button type="submit">Accept Order</button>
-    </form>
-    <form action="/order/{{ player_id }}" method="POST">
-        <input type="hidden" name="action" value="reject">
-        <button type="submit">Reject Order</button>
-    </form>
+    <div class="container mt-5">
+        <h1>New Order</h1>
+        <p><strong>Product:</strong> {{ order.product_type }}</p>
+        <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+        <p><strong>Price per Unit:</strong> ${{ order.price_per_unit }}</p>
+        <p><strong>Payment Terms:</strong> {{ order.payment_terms }}</p>
+        <form action="/order/{{ player_id }}" method="POST">
+            <input type="hidden" name="action" value="accept">
+            <button class="btn btn-success" type="submit">Accept</button>
+        </form>
+        <form action="/order/{{ player_id }}" method="POST">
+            <input type="hidden" name="action" value="reject">
+            <button class="btn btn-danger" type="submit">Reject</button>
+        </form>
+    </div>
 </body>
 </html>

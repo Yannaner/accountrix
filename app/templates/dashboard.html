@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <p>Username: {{ username }}</p>
-    <p>Cash Balance: {{ cash_balance }}</p>
-    <p>Balance Sheet: {{ balance_sheet }}</p>
-    <p>Inventory: {{ inventory }}</p>
+    <div class="container mt-5">
+        <h1>Welcome, {{ username }}</h1>
+        <p><strong>Cash Balance:</strong> ${{ cash_balance }}</p>
+        <p><strong>Balance Sheet:</strong> {{ balance_sheet }}</p>
+        <p><strong>Inventory:</strong> {{ inventory }}</p>
+    </div>
 </body>
 </html>

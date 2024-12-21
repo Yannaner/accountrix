@@ -76,7 +76,10 @@ def handle_order(player_id):
             player_id=player.id,
             type="sale",
             amount=order["quantity"] * order["price_per_unit"],
+            debit_account="Cash",
+            credit_account="Sales"
         )
+
         db.session.add(transaction)
 
         # Add payment terms logic

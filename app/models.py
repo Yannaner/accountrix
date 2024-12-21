@@ -19,6 +19,8 @@ class Order(db.Model):
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'), nullable=False)
-    type = db.Column(db.String(50), nullable=False)  # e.g., "purchase", "sale", "AR", "AP"
+    type = db.Column(db.String(50), nullable=False)  # "sale", "purchase", "AR", "AP"
     amount = db.Column(db.Float, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
+    debit_account = db.Column(db.String(50))  # E.g., "Cash", "Inventory"
+    credit_account = db.Column(db.String(50))  # E.g., "Sales", "AP"

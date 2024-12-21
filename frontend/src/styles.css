@@ -1,0 +1,51 @@
+.board {
+    display: grid;
+    grid-template-areas:
+        "inventory operation-costs liabilities"
+        "assets cash equity";
+    gap: 20px;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.section {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.cash {
+    grid-area: cash;
+    background-color: yellow;
+}
+
+.inventory {
+    grid-area: inventory;
+    background-color: green;
+    color: white;
+}
+
+.operation-costs {
+    grid-area: operation-costs;
+    background-color: orange;
+    color: white;
+}
+
+.assets {
+    grid-area: assets;
+    background-color: blue;
+    color: white;
+}
+
+.liabilities {
+    grid-area: liabilities;
+    background-color: red;
+    color: white;
+}
+
+.equity {
+    grid-area: equity;
+    background-color: purple;
+    color: white;
+}
