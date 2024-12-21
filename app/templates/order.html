@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order</title>
+</head>
+<body>
+    <h1>New Order</h1>
+    <p>Product: {{ order.product_type }}</p>
+    <p>Quantity: {{ order.quantity }}</p>
+    <p>Price per Unit: {{ order.price_per_unit }}</p>
+    <p>Payment Terms: {{ order.payment_terms }}</p>
+
+    <form action="/order/{{ player_id }}" method="POST">
+        <input type="hidden" name="action" value="accept">
+        <button type="submit">Accept Order</button>
+    </form>
+    <form action="/order/{{ player_id }}" method="POST">
+        <input type="hidden" name="action" value="reject">
+        <button type="submit">Reject Order</button>
+    </form>
+</body>
+</html>
