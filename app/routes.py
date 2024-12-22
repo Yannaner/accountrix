@@ -34,15 +34,15 @@ def produce(player_id):
 #Stimulating agent order generation
 from app.agency.dynamic_decision import generate_order
 
-@main.route("/order/<int:player_id>", methods=["GET"])
-def order(player_id):
-    player = Player.query.get(player_id)
-    if not player:
-        return jsonify({"error": "Player not found"}), 404
+# @main.route("/order/<int:player_id>", methods=["GET"])
+# def order(player_id):
+#     player = Player.query.get(player_id)
+#     if not player:
+#         return jsonify({"error": "Player not found"}), 404
 
-    # Simulate order creation
-    order = generate_order(player_data={"inventory": player.inventory})
-    return jsonify(order)
+#     # Simulate order creation
+#     order = generate_order(player_data={"inventory": player.inventory})
+#     return jsonify(order)
 
 from flask import request
 from app.models import Player, Transaction, db
@@ -124,10 +124,21 @@ def dashboard(player_id):
 
 @main.route("/order/<int:player_id>", methods=["GET"])
 def view_order(player_id):
+    # Fetch the player from the database
     player = Player.query.get(player_id)
     if not player:
         return "Player not found", 404
 
-    # Simulate order creation
-    order = generate_order(player_data={"inventory": player.inventory})
-    return render_template("order.html", order=order, player_id=player.id)
+    # Generate an order using the player's data
+    order_data = generate_order(player_data={"inventory": player.inventory})
+
+    # Add additional fields to the order
+    order_data["total_amount"] = round(order_data["quantity"] * order_data["price_per_unit"], 2)
+    order_data["delivery_date"] = "2024-12-31"  # Example: Fixed date or dynamic logic
+    order_data["penalty"] = "$5/day after due date"  # Example penalty
+
+    # Render the order.html template
+    return render_template("order.html", order=order_data, player_id=player_id)
+
+
+

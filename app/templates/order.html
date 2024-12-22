@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Order</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>New Order</h1>
-        <p><strong>Product:</strong> {{ order.product_type }}</p>
-        <p><strong>Quantity:</strong> {{ order.quantity }}</p>
-        <p><strong>Price per Unit:</strong> ${{ order.price_per_unit }}</p>
-        <p><strong>Payment Terms:</strong> {{ order.payment_terms }}</p>
-        <form action="/order/{{ player_id }}" method="POST">
-            <input type="hidden" name="action" value="accept">
-            <button class="btn btn-success" type="submit">Accept</button>
-        </form>
-        <form action="/order/{{ player_id }}" method="POST">
-            <input type="hidden" name="action" value="reject">
-            <button class="btn btn-danger" type="submit">Reject</button>
-        </form>
+    <div class="order-container">
+        <header>
+            <h1>Order Details</h1>
+        </header>
+        <main>
+            <div class="order-details">
+                <h2>Order Information</h2>
+                <p><strong>Product:</strong> {{ order.product_type }}</p>
+                <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+                <p><strong>Price per Unit:</strong> ${{ order.price_per_unit }}</p>
+                <p><strong>Total Amount:</strong> ${{ order.total_amount }}</p>
+                <p><strong>Payment Terms:</strong> {{ order.payment_terms }}</p>
+                <p><strong>Delivery Date:</strong> {{ order.delivery_date }}</p>
+                <p><strong>Penalty for Delay:</strong> {{ order.penalty }}</p>
+            </div>
+
+            <div class="order-actions">
+                <form action="/order/{{ player_id }}" method="POST">
+                    <input type="hidden" name="action" value="accept">
+                    <button class="btn-accept" type="submit">Accept Order</button>
+                </form>
+                <form action="/order/{{ player_id }}" method="POST">
+                    <input type="hidden" name="action" value="reject">
+                    <button class="btn-reject" type="submit">Reject Order</button>
+                </form>
+            </div>
+        </main>
     </div>
 </body>
 </html>

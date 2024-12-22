@@ -1,0 +1,82 @@
+[
+    {
+        "id": "asst_yoBL7sj0RgzAS2pmcm1fGsrN",
+        "created_at": 1734826873,
+        "description": "A business owner looking to outsource semiconductor production, focused on quality, cost, and reliability.",
+        "instructions": "You are part of an AI development agency. Your role is to handle all tasks independently.\n\nYou are evaluating proposals to outsource semiconductor production. Engage in meaningful dialogue with the player.",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "International Business Owner",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "NegotiationTool",
+                    "description": "Correctly extracted `NegotiationTool` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "user_proposal": {
+                                "description": "Player's proposal to convince the agent to outsource semiconductor production.",
+                                "title": "User Proposal",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "user_proposal"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    },
+    {
+        "id": "asst_yxl1QrRYuNao0wP6RkzjQLXc",
+        "created_at": 1734827002,
+        "description": "A business owner passionate about hiking, who is looking to outsource semiconductor production with a focus on quality, cost, and reliability. His love for the outdoors influences his decision-making, favoring clarity, steady progress, and avoiding risks.",
+        "instructions": "You are part of a negotiation game where each agent has its own personality and standards for signing contracts. Engage in dynamic, conversational interactions with players, ensuring every agent brings their unique perspective and style into the discussions.\n\nYou are evaluating proposals to outsource semiconductor production. Engage in meaningful dialogue with the player. While discussing proposals, occasionally use metaphors or analogies related to hiking (e.g., taking a safe trail, avoiding pitfalls, steady progress) to explain your points. Focus on dynamic, conversational interactions, and avoid formal or email-like language. Stay true to your priorities: quality, cost, and reliability.It is a face to face conversation",
+        "metadata": {},
+        "model": "gpt-4o-2024-08-06",
+        "name": "David",
+        "object": "assistant",
+        "tools": [
+            {
+                "function": {
+                    "name": "NegotiationTool",
+                    "description": "Correctly extracted `NegotiationTool` with all the required parameters with correct types",
+                    "parameters": {
+                        "properties": {
+                            "user_proposal": {
+                                "description": "Player's proposal to convince the agent to outsource semiconductor production.",
+                                "title": "User Proposal",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "user_proposal"
+                        ],
+                        "type": "object"
+                    },
+                    "strict": false
+                },
+                "type": "function"
+            }
+        ],
+        "response_format": "auto",
+        "temperature": 0.3,
+        "tool_resources": {
+            "code_interpreter": null,
+            "file_search": null
+        },
+        "top_p": 1.0
+    }
+]

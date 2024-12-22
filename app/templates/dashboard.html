@@ -1,15 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Welcome, {{ username }}</h1>
-        <p><strong>Cash Balance:</strong> ${{ cash_balance }}</p>
-        <p><strong>Balance Sheet:</strong> {{ balance_sheet }}</p>
-        <p><strong>Inventory:</strong> {{ inventory }}</p>
+    <div class="dashboard-container">
+        <header>
+            <h1>Player Dashboard</h1>
+            <p>Welcome, {{ username }}</p>
+        </header>
+
+        <main>
+            <div class="balance-sheet">
+                <h2>Balance Sheet</h2>
+                <div class="balance-section">
+                    <div class="asset-section">
+                        <h3>Assets</h3>
+                        <ul>
+                            <li>Cash: ${{ cash_balance }}</li>
+                            <li>Accounts Receivable: ${{ accounts_receivable }}</li>
+                            <li>Inventory:</li>
+                            <ul>
+                                <li>Finished Goods: ${{ finished_goods }}</li>
+                                <li>WIP: ${{ work_in_progress }}</li>
+                                <li>Raw Material: ${{ raw_material }}</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="liability-section">
+                        <h3>Liabilities</h3>
+                        <ul>
+                            <li>Accounts Payable: ${{ accounts_payable }}</li>
+                            <li>Loans: ${{ loans }}</li>
+                            <li>Other Liabilities: ${{ other_liabilities }}</li>
+                        </ul>
+                    </div>
+                    <div class="equity-section">
+                        <h3>Equity</h3>
+                        <ul>
+                            <li>Capital: ${{ capital }}</li>
+                            <li>Retained Earnings: ${{ retained_earnings }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interaction-panel">
+                <h2>Manage Orders</h2>
+                <a href="/order" class="btn-primary">View and Manage Orders</a>
+            </div>
+        </main>
     </div>
 </body>
 </html>
